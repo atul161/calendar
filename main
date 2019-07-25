@@ -1,7 +1,10 @@
 import 'package:date_utils/date_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-
+   new SizedBox(
+          height: 2,
+          width: MediaQuery.of(context).size.width,
+        )
 String date = DateTime.now().day.toString();
 String month = DateTime.now().month.toString();
 String year = DateTime.now().year.toString();
@@ -17,6 +20,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   DateTime _selectedDay;
+  int isSelected=0 ;
   Map<DateTime, List> _events;
   Map<DateTime, List> _visibleEvents;
   List _selectedEvents;
@@ -387,7 +391,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   }
 
   Widget _reallist() {
-    int isSelected ;
     return ListView.builder(
       itemCount: _selectedEvents.length,
       itemBuilder: (context, position) {
